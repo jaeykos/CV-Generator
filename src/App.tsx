@@ -130,11 +130,12 @@ function EducationInputDiv(props: any) {
     ])
     console.log(props.educationExps.length)
   }
-  const removeEdExp = (e: MouseEvent) => {
+  const removeEdExp = (e: React.MouseEvent) => {
+    const clickedButton = e.target as HTMLButtonElement
     props.setEducationExps(
       props.educationExps.filter(
         (item: Education) =>
-          item.id != e.target.parentElement.parentElement.id.toString()
+          item.id != Number(clickedButton.parentElement?.parentElement?.id)
       )
     )
     console.log("item removed")
@@ -171,7 +172,7 @@ function EducationInputDiv(props: any) {
                           (item: Education) => {
                             if (
                               item.id ==
-                              Number(e.target.parentElement?.parentElement.id)
+                              Number(e.target.parentElement?.parentElement?.id)
                             ) {
                               item.degree = e.target.value
                               return item
@@ -194,7 +195,7 @@ function EducationInputDiv(props: any) {
                           (item: Education) => {
                             if (
                               item.id ==
-                              Number(e.target.parentElement?.parentElement.id)
+                              Number(e.target.parentElement?.parentElement?.id)
                             ) {
                               item.school = e.target.value
                               return item
@@ -217,7 +218,7 @@ function EducationInputDiv(props: any) {
                           (item: Education) => {
                             if (
                               item.id ==
-                              Number(e.target.parentElement?.parentElement.id)
+                              Number(e.target.parentElement?.parentElement?.id)
                             ) {
                               item.location = e.target.value
                               return item
@@ -240,7 +241,7 @@ function EducationInputDiv(props: any) {
                           (item: Education) => {
                             if (
                               item.id ==
-                              Number(e.target.parentElement?.parentElement.id)
+                              Number(e.target.parentElement?.parentElement?.id)
                             ) {
                               item.startDate = e.target.value
                               return item
@@ -263,7 +264,7 @@ function EducationInputDiv(props: any) {
                           (item: Education) => {
                             if (
                               item.id ==
-                              Number(e.target.parentElement?.parentElement.id)
+                              Number(e.target.parentElement?.parentElement?.id)
                             ) {
                               item.endDate = e.target.value
                               return item
@@ -285,7 +286,7 @@ function EducationInputDiv(props: any) {
                           (item: Education) => {
                             if (
                               item.id ==
-                              Number(e.target.parentElement?.parentElement.id)
+                              Number(e.target.parentElement?.parentElement?.id)
                             ) {
                               item.description = e.target.value
                               return item
@@ -323,11 +324,12 @@ function WorkInputDiv(props: any) {
     props.setWorkExps([...props.workExps, new Work(props.workExpNo)])
     console.log(props.workExps.length)
   }
-  const removeWorkExp = (e: MouseEvent) => {
+  const removeWorkExp = (e: React.MouseEvent) => {
+    const removeButton = e.target as HTMLButtonElement
     props.setWorkExps(
       props.workExps.filter(
         (item: Work) =>
-          item.id != e.target.parentElement.parentElement.id.toString()
+          item.id != Number(removeButton.parentElement?.parentElement?.id)
       )
     )
     console.log("item removed")
@@ -363,7 +365,7 @@ function WorkInputDiv(props: any) {
                         const tempArray = props.workExps.map((item: Work) => {
                           if (
                             item.id ==
-                            Number(e.target.parentElement?.parentElement.id)
+                            Number(e.target.parentElement?.parentElement?.id)
                           ) {
                             item.title = e.target.value
                             return item
@@ -384,7 +386,7 @@ function WorkInputDiv(props: any) {
                         const tempArray = props.workExps.map((item: Work) => {
                           if (
                             item.id ==
-                            Number(e.target.parentElement?.parentElement.id)
+                            Number(e.target.parentElement?.parentElement?.id)
                           ) {
                             item.company = e.target.value
                             return item
@@ -405,7 +407,7 @@ function WorkInputDiv(props: any) {
                         const tempArray = props.workExps.map((item: Work) => {
                           if (
                             item.id ==
-                            Number(e.target.parentElement?.parentElement.id)
+                            Number(e.target.parentElement?.parentElement?.id)
                           ) {
                             item.location = e.target.value
                             return item
@@ -426,7 +428,7 @@ function WorkInputDiv(props: any) {
                         const tempArray = props.workExps.map((item: Work) => {
                           if (
                             item.id ==
-                            Number(e.target.parentElement?.parentElement.id)
+                            Number(e.target.parentElement?.parentElement?.id)
                           ) {
                             item.startDate = e.target.value
                             return item
@@ -447,7 +449,7 @@ function WorkInputDiv(props: any) {
                         const tempArray = props.workExps.map((item: Work) => {
                           if (
                             item.id ==
-                            Number(e.target.parentElement?.parentElement.id)
+                            Number(e.target.parentElement?.parentElement?.id)
                           ) {
                             item.endDate = e.target.value
                             return item
@@ -467,7 +469,7 @@ function WorkInputDiv(props: any) {
                         const tempArray = props.workExps.map((item: Work) => {
                           if (
                             item.id ==
-                            Number(e.target.parentElement?.parentElement.id)
+                            Number(e.target.parentElement?.parentElement?.id)
                           ) {
                             item.description = e.target.value
                             return item
@@ -566,9 +568,9 @@ function App() {
   const [locationVal, setLocationVal] = useState("")
   const [summaryVal, setSummaryVal] = useState("")
   const [edExpNo, setEdExpNo] = useState(0)
-  const [educationExps, setEducationExps] = useState([])
+  const [educationExps, setEducationExps] = useState([] as Education[])
   const [workExpNo, setWorkExpNo] = useState(0)
-  const [workExps, setWorkExps] = useState([])
+  const [workExps, setWorkExps] = useState([] as Work[])
 
   const InfoPropsToPass = {
     nameVal,
