@@ -1,12 +1,11 @@
 import { useState } from "react"
 import "./App.css"
-import { Split } from "@geoffcox/react-splitter"
 import { useCollapse } from "react-collapsed"
 import { Education, Work } from "./data"
 import expandLogo from "./assets/chevron-down.svg"
 import collapseLogo from "./assets/chevron-up.svg"
 
-function GeneralInfoInputDiv(props) {
+function GeneralInfoInputDiv(props: any) {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse({
     defaultExpanded: true,
   })
@@ -91,7 +90,7 @@ function GeneralInfoInputDiv(props) {
   )
 }
 
-function GeneralInfoOutputDiv(props) {
+function GeneralInfoOutputDiv(props: any) {
   function populateSummary() {
     if (props.summaryVal.length > 0) {
       return (
@@ -119,7 +118,7 @@ function GeneralInfoOutputDiv(props) {
   )
 }
 
-function EducationInputDiv(props) {
+function EducationInputDiv(props: any) {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse({
     defaultExpanded: true,
   })
@@ -315,7 +314,7 @@ function EducationInputDiv(props) {
   )
 }
 
-function WorkInputDiv(props) {
+function WorkInputDiv(props: any) {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse({
     defaultExpanded: true,
   })
@@ -496,7 +495,7 @@ function WorkInputDiv(props) {
   )
 }
 
-function EducationOutputDiv(props) {
+function EducationOutputDiv(props: any) {
   return (
     <>
       <div className="flex flex-col mx-auto ">
@@ -528,7 +527,7 @@ function EducationOutputDiv(props) {
   )
 }
 
-function WorkOutputDiv(props) {
+function WorkOutputDiv(props: any) {
   return (
     <>
       <div className="flex flex-col mx-auto border-solid ">
